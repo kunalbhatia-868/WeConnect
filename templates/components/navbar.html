@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand mb-0 h1" href="#" style="font-size: 1.5rem; font-weight: 600; font-family: Georgia, 'Times New Roman', Times, serif; ">WeConnect</a>
+        <a class="navbar-brand mb-0 h1" href={%url 'wall'%} style="font-size: 1.5rem; font-weight: 600; font-family: Georgia, 'Times New Roman', Times, serif; ">WeConnect</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Feed</a>
+                    <a class="nav-link active" aria-current="page" href={%url 'wall'%}>Feed</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Friends</a>
