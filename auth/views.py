@@ -28,6 +28,10 @@ def register(request):
         form=SignUpForm(data=request.POST)
         if form.is_valid():
             form.save()
+            user=form.cleaned_data.get('username')
+            messages.success(request,f"New Account has been created - {user} ")
+        else:   
+            messages.info(request,f"Please Enter Valid Details") 
 
     context={
         'form':SignUpForm,

@@ -23,7 +23,8 @@
                     <button type="submit" class="btn btn-log">Login</button>
                 </form>
                 {% for message in messages %}
-                    <p>{{message}}</p>
+                    <br>
+                    <li><p><em>{{message}}<em></p></li>
                 {% endfor %}
                 <div class="inputBx">
                     <p>Don't have an account? <a href={% url 'signup' %}>Sign Up</a></p>
