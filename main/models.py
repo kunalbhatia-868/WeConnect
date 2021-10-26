@@ -12,7 +12,7 @@ class Post(models.Model):
         return self.content[:40]
 
 
-class Friends(models.Model):
+class Friend(models.Model):
     person1=models.ForeignKey(User,on_delete=models.CASCADE,related_name="person1")
     person2=models.ForeignKey(User,on_delete=models.CASCADE,related_name="person2")
 

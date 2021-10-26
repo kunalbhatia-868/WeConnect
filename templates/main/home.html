@@ -2,5 +2,9 @@
 
 {% block content %}
     {% include "components/navbar.html" %}
-    <h1>Home</h1>
+    <ul>
+        {% for post in posts %}
+            <li>{{post}}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

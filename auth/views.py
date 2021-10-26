@@ -12,6 +12,7 @@ def logIn(request):
         if user is not None:
             login(request,user)
             messages.success(request,f"{user.username} has been logged in ")
+            return redirect('wall')
         else:    
             messages.info(request,f"username or password didn't match")    
 
@@ -30,6 +31,7 @@ def register(request):
             form.save()
             user=form.cleaned_data.get('username')
             messages.success(request,f"New Account has been created - {user} ")
+            return redirect('login')
         else:   
             messages.info(request,f"Please Enter Valid Details") 
 

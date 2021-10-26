@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "components/navbar.html" %}
+<ul>
+    {% for post in feed %}
+    <li>{{post}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
