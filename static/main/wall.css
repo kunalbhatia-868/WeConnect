@@ -1,6 +1,5 @@
 .card {
 	margin-top: 2rem;
-	border: 1px solid #a1b2eb;
 	border-radius: 0.75rem;
 }
 .card-body {
@@ -22,4 +21,9 @@
 #id_content {
 	border: 1px solid #a1b2eb;
 	border-radius: 0.75rem;
+}
+section.feed-posts {
+	margin-top: 3rem;
+	display: block;
+	padding: 5rem;
 }

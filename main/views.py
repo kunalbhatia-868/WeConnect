@@ -37,9 +37,8 @@ class CreatePost(CreateView):
             post_form=form.save(commit=False)
             post_form.user=self.request.user
             post_form.save()
-            messages.success(request,f" Post Created! - {post_form.user.username}")
             return redirect('wall')
         else:
-            messages.info(f" Please Enter valid Entries ")
+            messages.info(f" Please Enter valid Entries")
         
     

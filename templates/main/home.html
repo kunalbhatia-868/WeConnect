@@ -2,9 +2,9 @@
 
 {% block content %}
     {% include "components/navbar.html" %}
-    <ul>
+    <section class="posts container">
         {% for post in posts %}
-            <li>{{post}}</li>
+            {% include "main/components/post.html" %}
         {% endfor %}
-    </ul>
+    </section>
 {% endblock %}

@@ -11,7 +11,7 @@
         <div class="card container">
             <div class="card-body">
                 <h4 class="card-title">Share a Photo or Update with your Friends</h4>
-                <form action="/create/" method="post"> 
+                <form action="/create/" method="post" enctype="multipart/form-data"> 
                     {% csrf_token %}
                     <div class="text-form form-control-plaintext">
                         {{form.content}}
@@ -23,12 +23,18 @@
                         <button class="btn btn-primary btn-lg" type="submit">Upload</button>
                     </div>
                 </form>
+                <br>
+                {% for message in messages %}
+                <li>
+                    <p><em>{{message}}<em></p>
+                </li>
+                {% endfor %}
             </div>
         </div>
     </div>
-    <ul>
+    <section class="feed-posts container">
         {% for post in feed %}
-        <li>{{post}}</li>
+            {% include "main/components/post.html" %}
         {% endfor %}
-    </ul>
+    </section>
 {% endblock %}
