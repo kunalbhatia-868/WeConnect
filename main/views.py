@@ -32,7 +32,7 @@ class Home(LoginRequiredMixin,ListView):
 
 class CreatePost(CreateView):
     def post(self,request):
-        form=forms.PostForm(data=request.POST)
+        form=forms.PostForm(request.POST,request.FILES)
         if form.is_valid():
             post_form=form.save(commit=False)
             post_form.user=self.request.user

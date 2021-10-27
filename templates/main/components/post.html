@@ -1,6 +1,6 @@
 <div class="card mb-3 mt-3 card-feed-post">
     {% if post.image %}    
-        <img src={{post.image}} class="card-img-top" alt="">
+        <img src="/media/{{post.image}}" class="card-img-top" alt="">
     {% endif %}
     <div class="card-body">
         <h5 class="card-title">{{post.user.first_name}} {{post.user.last_name}}</h5>
