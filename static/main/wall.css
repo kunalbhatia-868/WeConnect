@@ -24,6 +24,14 @@
 }
 section.feed-posts {
 	margin-top: 3rem;
-	display: block;
 	padding: 5rem;
+}
+img.card-img-top {
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+@media screen and (min-width: 900px) {
+	.card-feed-post {
+		margin: 10rem;
+	}
 }

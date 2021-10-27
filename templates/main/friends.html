@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "components/navbar.html" %}
+    <ul>
+        {% for friend in friends %}
+            <li><a href={% url 'friend_detail' friend.id %}>{{friend.first_name}} {{friend.last_name}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

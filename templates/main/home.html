@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static%}
+
+
+{% block head%}
+    <link rel="stylesheet" href={% static 'main/Home.css' %}>
+{% endblock%}
 
 {% block content %}
     {% include "components/navbar.html" %}
