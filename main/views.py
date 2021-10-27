@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.shortcuts import redirect, render
+from django.views.generic import ListView,CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from main import models
+from main import models,forms
+from django.contrib import messages
 # Create your views here.
 
 class Wall(LoginRequiredMixin,ListView):
@@ -15,6 +16,11 @@ class Wall(LoginRequiredMixin,ListView):
         
         return models.Post.objects.filter(user__in=friendIds)
 
+    def get_context_data(self, **kwargs):
+        context_data=super().get_context_data(**kwargs)
+        context_data['form']=forms.PostForm
+        return context_data    
+
 class Home(LoginRequiredMixin,ListView):
     template_name='main/home.html'
     context_object_name="posts"
@@ -22,4 +28,18 @@ class Home(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         return models.Post.objects.filter(user=self.request.user)
+    
+
+class CreatePost(CreateView):
+    def post(self,request):
+        form=forms.PostForm(data=request.POST)
+        if form.is_valid():
+            post_form=form.save(commit=False)
+            post_form.user=self.request.user
+            post_form.save()
+            messages.success(request,f" Post Created! - {post_form.user.username}")
+            return redirect('wall')
+        else:
+            messages.info(f" Please Enter valid Entries ")
+        
     

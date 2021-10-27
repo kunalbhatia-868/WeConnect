@@ -1,0 +1,25 @@
+.card {
+	margin-top: 2rem;
+	border: 1px solid #a1b2eb;
+	border-radius: 0.75rem;
+}
+.card-body {
+	padding: 2rem;
+}
+
+.card-title {
+	font-size: 1.5rem;
+	font-family: initial;
+	margin-bottom: 1rem;
+}
+.text-form {
+	display: grid;
+}
+.file-form {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+#id_content {
+	border: 1px solid #a1b2eb;
+	border-radius: 0.75rem;
+}
