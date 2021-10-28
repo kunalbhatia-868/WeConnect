@@ -18,7 +18,7 @@
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
-#id_content {
+.card-body #id_content {
 	border: 1px solid #a1b2eb;
 	border-radius: 0.75rem;
 }

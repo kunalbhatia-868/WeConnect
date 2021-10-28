@@ -19,3 +19,11 @@ class Friend(models.Model):
     def __str__(self):
         return self.person1.username +" - "+ self.person2.username
 
+
+class Comment(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    post=models.ForeignKey('POST',on_delete=models.CASCADE)
+    content=models.CharField(max_length=1024,blank=False,null=True)
+
+    def __str__(self):
+        return self.user.username +" - "+ self.content[:40]

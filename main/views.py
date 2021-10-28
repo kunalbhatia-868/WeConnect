@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 from django.views.generic import ListView,CreateView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from main import models,forms
@@ -20,12 +20,18 @@ class Wall(LoginRequiredMixin,ListView):
     def get_context_data(self, **kwargs):
         context_data=super().get_context_data(**kwargs)
         context_data['form']=forms.PostForm
+        context_data['comment_form']=forms.CommentForm
         return context_data    
 
 class Home(LoginRequiredMixin,ListView):
     template_name='main/home.html'
     context_object_name="posts"
     login_url="login"
+
+    def get_context_data(self, **kwargs):
+        context_data= super().get_context_data(**kwargs)
+        context_data['comment_form']=forms.CommentForm
+        return context_data
 
     def get_queryset(self):
         return models.Post.objects.filter(user=self.request.user).order_by('-created_on')
@@ -58,3 +64,15 @@ class UserDetail(LoginRequiredMixin,DetailView):
     template_name="main/detail.html"
     model=User
     login_url='login'
+
+
+class PostComment(LoginRequiredMixin,CreateView):
+    login_url='login'
+    def post(self,request,pk):
+        form=forms.CommentForm(request.POST)
+        if form.is_valid():
+            comment_form=form.save(commit=False)
+            comment_form.post=models.Post.objects.get(id=pk)
+            comment_form.user=self.request.user
+            comment_form.save()
+            return redirect('wall')
